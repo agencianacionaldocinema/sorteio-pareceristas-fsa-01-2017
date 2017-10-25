@@ -1,0 +1,24 @@
+{
+  "name": "sorteio-pareceristas-externos",
+  "homepage": "https://agencianacionaldocinema.github.io/sorteio-pareceristas-fsa-01-2017",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "gh-pages": "^1.0.0",
+    "jssha": "^2.3.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14",
+    "reactstrap": "^5.0.0-alpha.3",
+    "seedrandom": "^2.4.3"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom --coverage",
+    "eject": "react-scripts eject"
+  }
+}
