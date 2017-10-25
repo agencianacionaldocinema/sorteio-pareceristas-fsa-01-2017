@@ -77,7 +77,7 @@ class BotaoSortear extends Component {
   render() {
     return (
       <Card>
-        <Button color="primary" onClick={this.props.onClick}>Sortear ordem</Button>
+        <Button color="primary" onClick={this.props.onClick}>Sortear ordem de credenciamento</Button>
       </Card>
     );
   }
@@ -103,7 +103,7 @@ class BotoesSelecionaAcao extends Component {
     return (
       <div>
           <Card>
-            <Button color="success" onClick={ () => onClick("sorteio") }>Realizar sorterio</Button>
+            <Button color="success" onClick={ () => onClick("sorteio") }>Realizar sorteio</Button>
           </Card>
           <br />
           <br />
