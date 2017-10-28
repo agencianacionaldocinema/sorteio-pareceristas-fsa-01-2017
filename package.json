@@ -6,19 +6,32 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "gh-pages": "^1.0.0",
+    "husky": "^0.14.3",
     "jssha": "^2.3.1",
+    "lint-staged": "^4.3.0",
+    "prettier": "^1.7.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14",
     "reactstrap": "^5.0.0-alpha.3",
     "seedrandom": "^2.4.3"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
   "scripts": {
+    "precommit": "lint-staged",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "prettier-eslint": "^8.2.1"
   }
 }
