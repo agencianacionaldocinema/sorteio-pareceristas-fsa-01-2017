@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gerar string CSV a partir da lista de sorteados 1`] = `
+"Ordem,Inscrição,CPF,Nome
+1,123,888.888.888-88,Parecerista xyz
+"
+`;

@@ -46,5 +46,6 @@ const baixeResultados = (sorteados, log, dataSorteio) => {
 
 module.exports = {
   getRandomInt,
+  sorteados2CSV,
   baixeResultados
 };
