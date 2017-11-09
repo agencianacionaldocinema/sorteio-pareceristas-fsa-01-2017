@@ -1,20 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
-// import ShallowRenderer from 'react-test-renderer/shallow';
 
-it('renders without crashing', () => {
+it('deve apresentar participantes e sortear', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  const wrapper = ReactDOM.render(<App />, div);
+  global.URL.createObjectURL = jest.fn();
+  global.URL.revokeObjectURL = jest.fn();
+
+  wrapper.alternaExibicaoParticipantes();
+  wrapper.sorteia('11/11/2011 11:11:11');
 });
-
-// it('deve apresentar participantes', () => {
-//   const renderer = new MountRenderer();
-//   const wrapper = renderer.mount(<App />);
-//   // console.log(new App())
-//   // const wrapper = mount(<App />);
-//   wrapper.alternaExibicaoParticipantes()
-//   //wrapper.instance().alternaExibicaoParticipantes();
-//   // console.log(renderer.getRenderOutput())
-
-// });
