@@ -10,4 +10,6 @@ it('deve apresentar participantes e sortear', () => {
 
   wrapper.alternaExibicaoParticipantes();
   wrapper.sorteia('11/11/2011 11:11:11');
+  expect(global.URL.createObjectURL).toHaveBeenCalledTimes(2);
+  expect(global.URL.revokeObjectURL).toHaveBeenCalledTimes(2);
 });

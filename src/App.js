@@ -4,18 +4,12 @@ import pareceristas from './utils/pareceristas';
 import jssha from 'jssha';
 import seedrandom from 'seedrandom'; // eslint-disable-line no-unused-vars
 import { getRandomInt, baixeResultados } from './utils/util';
-import {
-  logParametros,
-  logSorteio,
-  logLista,
-  logPareceristaAdicionado,
-  logPareceristaNaoAdicionado
-} from './utils/log';
 import Header from './Components/Header';
 import Botoes from './Components/Botoes';
 import Participantes from './Components/Participantes';
 import Sorteados from './Components/Sorteados';
 import If from './Components/If';
+import * as l from './utils/log';
 
 class App extends Component {
   state = {
@@ -40,20 +34,20 @@ class App extends Component {
     this.state.sha.update(dataSorteio + JSON.stringify(pareceristas));
     const semente = this.state.sha.getHash('HEX');
     Math.seedrandom(semente);
-    log += logParametros(dataSorteio, pareceristas, semente);
+    log += l.logParametros(dataSorteio, pareceristas, semente);
     while (sorteados.length < pareceristas.length) {
       const posicaoSorteada = getRandomInt(0, pareceristas.length);
       const sorteado = pareceristas[posicaoSorteada];
-      log += logSorteio(posicaoSorteada, sorteado);
+      log += l.logSorteio(posicaoSorteada, sorteado);
       if (!sorteado.jaSorteado) {
         sorteados.push(sorteado);
         pareceristas[posicaoSorteada].jaSorteado = true;
-        log += logPareceristaAdicionado();
+        log += l.logPareceristaAdicionado();
       } else {
-        log += logPareceristaNaoAdicionado();
+        log += l.logPareceristaNaoAdicionado();
       }
     }
-    log += logLista('Lista sorteados', sorteados);
+    log += l.logLista('Lista sorteados', sorteados);
     baixeResultados(sorteados, log, dataSorteio);
     this.setState({
       sorteados,
