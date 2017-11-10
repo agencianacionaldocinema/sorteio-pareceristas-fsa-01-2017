@@ -3,39 +3,31 @@ import BotaoParticipantes from './BotaoParticipantes';
 import BotaoSortear from './BotaoSortear';
 import DataSorteio from './DataSorteio';
 import BotoesSelecionaAcao from './BotoesSelecionaAcao';
-import If from './If';
+import If from '../If';
 
 class Botoes extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataSorteio: '',
-      selecionado: null,
-      sorteado: false
-    };
+  state = {
+    dataSorteio: '',
+    selecionado: null,
+    sorteado: false
+  };
 
-    this.informaData = this.informaData.bind(this);
-    this.selecionaSorteio = this.selecionaSorteio.bind(this);
-    this.selecionaAuditoria = this.selecionaAuditoria.bind(this);
-    this.sortear = this.sortear.bind(this);
-  }
-
-  informaData(event) {
+  informaData = event => {
     this.setState({ dataSorteio: event.target.value });
-  }
+  };
 
-  selecionaSorteio() {
+  selecionaSorteio = () => {
     this.setState({ selecionado: 'sorteio' });
-  }
+  };
 
-  selecionaAuditoria() {
+  selecionaAuditoria = () => {
     this.setState({ selecionado: 'auditoria' });
-  }
+  };
 
-  sortear() {
+  sortear = () => {
     this.props.sorteia(this.state.dataSorteio);
     this.setState({ sorteado: true });
-  }
+  };
 
   render() {
     const { alternaExibicaoParticipantes } = this.props;

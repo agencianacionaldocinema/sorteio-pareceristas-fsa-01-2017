@@ -1,44 +1,37 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
-import pareceristas from './pareceristas';
+import pareceristas from './utils/pareceristas';
 import jssha from 'jssha';
 import seedrandom from 'seedrandom'; // eslint-disable-line no-unused-vars
-import { getRandomInt, baixeResultados } from './util';
+import { getRandomInt, baixeResultados } from './utils/util';
 import {
   logParametros,
   logSorteio,
   logLista,
   logPareceristaAdicionado,
   logPareceristaNaoAdicionado
-} from './log';
-import Header from './Header';
-import Botoes from './Botoes';
-import Participantes from './Participantes';
-import Sorteados from './Sorteados';
+} from './utils/log';
+import Header from './Components/Header';
+import Botoes from './Components/Botoes';
+import Participantes from './Components/Participantes';
+import Sorteados from './Components/Sorteados';
+import If from './Components/If';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sha: new jssha('SHA3-512', 'TEXT'),
-      exibeParticipantes: false,
-      sorteados: [],
-      dataSorteio: null
-    };
+  state = {
+    sha: new jssha('SHA3-512', 'TEXT'),
+    exibeParticipantes: false,
+    sorteados: [],
+    dataSorteio: null
+  };
 
-    this.alternaExibicaoParticipantes = this.alternaExibicaoParticipantes.bind(
-      this
-    );
-    this.sorteia = this.sorteia.bind(this);
-  }
+  alternaExibicaoParticipantes = () => {
+    this.setState(currentState => ({
+      exibeParticipantes: !currentState.exibeParticipantes
+    }));
+  };
 
-  alternaExibicaoParticipantes() {
-    this.setState({
-      exibeParticipantes: !this.state.exibeParticipantes
-    });
-  }
-
-  sorteia(dataSorteio) {
+  sorteia = dataSorteio => {
     const sorteados = [];
     let log = '';
     if (!dataSorteio) {
@@ -66,9 +59,10 @@ class App extends Component {
       sorteados,
       dataSorteio
     });
-  }
+  };
 
   render() {
+    const { exibeParticipantes, sorteados, dataSorteio } = this.state;
     return (
       <Container>
         <Header />
@@ -77,14 +71,13 @@ class App extends Component {
           alternaExibicaoParticipantes={this.alternaExibicaoParticipantes}
         />
         <Participantes
-          aberto={this.state.exibeParticipantes}
+          aberto={exibeParticipantes}
           alterna={this.alternaExibicaoParticipantes}
           pareceristas={pareceristas}
         />
-        <Sorteados
-          dados={this.state.sorteados}
-          dataSorteio={this.state.dataSorteio}
-        />
+        <If test={sorteados.length > 0}>
+          <Sorteados dados={sorteados} dataSorteio={dataSorteio} />
+        </If>
       </Container>
     );
   }
