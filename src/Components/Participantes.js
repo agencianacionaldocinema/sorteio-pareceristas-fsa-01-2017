@@ -7,11 +7,12 @@ import {
   ModalBody,
   ModalFooter
 } from 'reactstrap';
+import participantes from '../participantes';
 
-const Participantes = ({ aberto, alterna, pareceristas }) => (
+const Participantes = ({ aberto, alterna }) => (
   <Modal isOpen={aberto} toggle={alterna} size={'lg'}>
     <ModalHeader toggle={alterna}>
-      {pareceristas.length} profissionais habilitados
+      {participantes.length} profissionais habilitados
     </ModalHeader>
     <ModalBody>
       <Table>
@@ -23,13 +24,13 @@ const Participantes = ({ aberto, alterna, pareceristas }) => (
           </tr>
         </thead>
         <tbody>
-          {pareceristas &&
-            pareceristas.map((parecerista, indice) => {
+          {participantes &&
+            participantes.map((participante, indice) => {
               return (
                 <tr key={indice}>
-                  <td>{parecerista['Inscrição']}</td>
-                  <td>{parecerista['CPF']}</td>
-                  <td>{parecerista['Nome']}</td>
+                  <td>{participante['Inscrição']}</td>
+                  <td>{participante['CPF']}</td>
+                  <td>{participante['Nome']}</td>
                 </tr>
               );
             })}

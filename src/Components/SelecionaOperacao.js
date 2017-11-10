@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'reactstrap';
 
-const BotoesSelecionaAcao = ({ onSorteioClick, onAuditoriaClick }) => (
+const SelecionaOperacao = ({ onSorteioClick, onAuditoriaClick }) => (
   <div>
     <Card>
       <Button color="success" onClick={onSorteioClick}>
@@ -18,4 +18,4 @@ const BotoesSelecionaAcao = ({ onSorteioClick, onAuditoriaClick }) => (
   </div>
 );
 
-export default BotoesSelecionaAcao;
+export default SelecionaOperacao;
