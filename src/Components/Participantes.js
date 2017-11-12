@@ -9,9 +9,9 @@ import {
 } from 'reactstrap';
 import participantes from '../participantes';
 
-const Participantes = ({ aberto, alterna }) => (
-  <Modal isOpen={aberto} toggle={alterna} size={'lg'}>
-    <ModalHeader toggle={alterna}>
+const Participantes = ({ history }) => (
+  <Modal isOpen toggle={() => history.push('/sorteio')} size={'lg'}>
+    <ModalHeader toggle={() => history.push('/sorteio')}>
       {participantes.length} profissionais habilitados
     </ModalHeader>
     <ModalBody>
@@ -38,7 +38,7 @@ const Participantes = ({ aberto, alterna }) => (
       </Table>
     </ModalBody>
     <ModalFooter>
-      <Button color="secondary" onClick={alterna}>
+      <Button color="secondary" onClick={() => history.push('/sorteio')}>
         Fechar
       </Button>
     </ModalFooter>

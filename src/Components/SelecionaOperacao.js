@@ -1,20 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Button } from 'reactstrap';
 
-const SelecionaOperacao = ({ onSorteioClick, onAuditoriaClick }) => (
+const SelecionaOperacao = () => (
   <div>
-    <Card>
-      <Button color="success" onClick={onSorteioClick}>
-        Realizar sorteio
-      </Button>
-    </Card>
+    <Link to="/sorteio">
+      <Card>
+        <Button color="success">Realizar sorteio</Button>
+      </Card>
+    </Link>
     <br />
     <br />
-    <Card>
-      <Button color="danger" onClick={onAuditoriaClick}>
-        Realizar auditoria
-      </Button>
-    </Card>
+    <Link to="/auditoria">
+      <Card>
+        <Button color="danger">Realizar auditoria</Button>
+      </Card>
+    </Link>
   </div>
 );
 
