@@ -1,10 +1,18 @@
 {
   "short_name": "Sorteio",
   "name": "Sorteio de Pareceristas Externos para chamadas públicas FSA nº 01/2017",
-  "icons": {
-    "16": "favicon.png",
-    "512": "favicon.png@16x"
-  },
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon@16x.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }    
+  ],
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
