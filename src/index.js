@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/sorteio-pareceristas-fsa-01-2017">
     <App />
   </BrowserRouter>,
   document.getElementById('root')
