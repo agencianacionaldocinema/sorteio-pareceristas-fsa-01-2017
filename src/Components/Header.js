@@ -20,7 +20,7 @@ const Header = () => (
         <p>
           Edital de credenciamento de pareceristas para chamadas públicas FSA nº
           01/2017
-          <br />Auditório da Agência Nacional do Cinema
+          <br />Rua Teixeira de Freitas, 31 - 4o andar
           <br />Data: {new Date(Date.now()).toLocaleDateString()}
         </p>
         <br />
